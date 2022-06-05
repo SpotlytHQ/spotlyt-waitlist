@@ -5,12 +5,27 @@ import { ReactComponent as Github } from "../assets/github.svg";
 import { ReactComponent as Theme } from "../assets/theme.svg";
 import { ReactComponent as Arrow } from "../assets/arrow.svg";
 
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 export default function Header() {
 
     function toggle_darkmode() {
         var element = document.body;
-        element.classList.toggle("dark-mode");
+        if(element.classList.contains("light-mode")) {
+            cookies.set('theme', 'dark-mode', { path: '/' });
+        } else {
+            cookies.set('theme', 'light-mode', { path: '/' });
+        }
+        element.classList.toggle("light-mode");
+    }
+
+    var theme = cookies.get('theme');
+
+    if(theme != null) {
+        var element = document.body;
+        element.classList.add(theme);
     }
 
     return (

@@ -45,7 +45,7 @@ body {
   color: var(--body-color);
 }
 
-body.dark-mode {
+body.light-mode {
   --bg: #f2f2f2;
   --body-color: #000;
   --light-black: #f9f9f9;
@@ -69,6 +69,10 @@ main {
   max-width: 900px;
   margin: 20px auto;
   padding: 0 20px;
+}
+
+a {
+  cursor: pointer;
 }
 
 .green {
